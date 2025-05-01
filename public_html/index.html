@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PinStream Home</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/main.js"></script>
+</head>
+<body data-page="home">
+  <header>
+<nav><a href="index.html">Home</a> | 
+  <a href="login.html" id="loginLink">Log In</a>
+  <a href="register.html" id="registerLink">Register</a>
+  <a href="dashboard.html" id="dashboardLink" style="display:none;">Dashboard</a>
+  <a href="create.html" id="createLink" style="display:none;">Create Pin</a>
+  <span id="accountInfo" style="float:right;"></span>
+</nav>  </header>
+  <main>
+    <h1>All Pins</h1>
+    <form onsubmit="event.preventDefault(); searchByTags(this.elements.tags.value);">
+      <input name="tags" placeholder="Search tags (comma separated)">
+      <button>Search</button>
+    </form>
+    <div id="pins">Loading…</div>
+  </main>
+</body>
+</html>

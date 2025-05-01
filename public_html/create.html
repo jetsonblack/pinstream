@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create / Edit Pin</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script defer src="js/main.js"></script>
+</head>
+<body data-page="create">
+  <header>
+<nav><a href="index.html">Home</a> | 
+  <a href="login.html" id="loginLink">Log In</a>
+  <a href="register.html" id="registerLink">Register</a>
+  <a href="dashboard.html" id="dashboardLink" style="display:none;">Dashboard</a>
+  <a href="create.html" id="createLink" style="display:none;">Create Pin</a>
+  <span id="accountInfo" style="float:right;"></span>
+</nav>  </header>
+  <main>
+    <h1>Create / Edit Pin</h1>
+    <form id="form" enctype="multipart/form-data">
+      <input name="title" placeholder="Title" required>
+      <input name="link" placeholder="URL" required>
+      <textarea name="body" placeholder="Markdown body"></textarea>
+      <input name="tags" placeholder="tag1, tag2">
+      <label><input type="checkbox" name="isPrivate"> Private</label><br>
+      <label>Image: <input type="file" name="image" accept="image/*"></label><br>
+      <button>Save</button>
+    </form>
+  </main>
+
+<script src="https://cdn.jsdelivr.net/npm/turndown/dist/turndown.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const bodyField = document.querySelector('textarea[name="body"]');
+  if (bodyField && bodyField.value && bodyField.value.includes("<")) {
+    const turndownService = new TurndownService();
+    const markdown = turndownService.turndown(bodyField.value);
+    bodyField.value = markdown;
+  }
+});
+</script>
+
+</body>
+</html>
