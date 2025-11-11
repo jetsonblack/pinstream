@@ -5,7 +5,7 @@ dotenv.config();
 const User = require('../server/models/User');
 
 async function run() {
-  await mongoose.connect(process.env.MONGO_URI);
+  await mongoose.connect(process.env.MONGO_URL);
   const result = await User.deleteMany({});
   console.log(`? Deleted ${result.deletedCount} user(s).`);
   process.exit();
