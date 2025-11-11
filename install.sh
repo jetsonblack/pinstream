@@ -62,7 +62,7 @@ fi
 # Create .env file
 cat <<EOL > .env
 PORT=$APP_PORT
-MONGO_URI=mongodb://localhost:$MONGO_PORT/pinstream
+MONGO_URL=mongodb://localhost:$MONGO_PORT/pinstream
 JWT_SECRET=$JWT_SECRET
 EOL
 
